@@ -1,4 +1,5 @@
 import express from "express";
+import { userUpdateTemplate } from "./nodeMailer";
 const app = express();
 const PORT = 8000;
 
@@ -10,11 +11,19 @@ app.use(express.json());
 //   });
 // });
 app.post("/", (req, res) => {
-  console.log(req.body);
-  res.json({
-    status: "success",
-    message: req.body,
-  });
+  try {
+    console.log(req.body);
+    userUpdateTemplate();
+    res.json({
+      status: "success",
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({
+      status: "error",
+      message: error.message,
+    });
+  }
 });
 app.listen(PORT, (error) => {
   error ? console.log(error) : console.log("localhost:" + 8000);
