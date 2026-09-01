@@ -2,7 +2,8 @@
 import nodemailer from "nodemailer";
 // Create a transporter using SMTP
 const transporter = nodemailer.createTransport({
-  host: "smtp.ethereal.email",
+  //host: "smtp.ethereal.email",
+  host: "smtp.gmail.com",
   port: 587,
   secure: false, // use STARTTLS (upgrade connection to TLS after connecting)
   auth: {
@@ -24,11 +25,12 @@ const emailPreocessor = async (template) => {
 //create the emial processor send out the email
 export const userUpdateTemplate = () => {
   const obj = {
-    from: '"Yadin" <giovani.willms@ethereal.email>', // sender address
-    to: "giovani.willms@ethereal.email", // list of recipients
-    subject: "Hello", // subject line
-    text: "The First email ?", // plain text body
-    html: "<b>Hello world?</b>", // HTML body
+    // from: '"Yadin" <giovani.willms@ethereal.email>', // sender address
+    from: '"Yadin" <nouyadin@gmail.com>',
+    to: "nouyadin007@gmail.com", // list of recipients
+    subject: "Gmail proccessing", // subject line
+    text: "The GMail", // plain text body
+    html: "<b>Nodemailer with Gmail</b>", // HTML body
   };
 
   emailPreocessor(obj);
