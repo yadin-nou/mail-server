@@ -1,5 +1,5 @@
 import express from "express";
-import { userUpdateTemplate } from "./nodeMailer";
+import { userUpdateTemplate } from "./nodeMailer.js";
 const app = express();
 const PORT = 8000;
 

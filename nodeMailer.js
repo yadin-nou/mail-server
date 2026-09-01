@@ -14,8 +14,12 @@ const transporter = nodemailer.createTransport({
 //Email processor
 
 const emailPreocessor = async (template) => {
-  const result = await transporter.sendMail(template);
-  console.log(result.messageId);
+  try {
+    const result = await transporter.sendMail(template);
+    console.log(result.messageId);
+  } catch (error) {
+    console.log(error);
+  }
 };
 //create the emial processor send out the email
 export const userUpdateTemplate = () => {
